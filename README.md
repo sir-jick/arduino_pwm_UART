@@ -4,9 +4,9 @@ for controlling DC motor RPM
 
 
 # Requaerment :
-  1. one arduino borad as master
-  2. one arduino board as slave
-  3. 10 k potentiameter
+  1. one arduino uno or nano borad as master
+  2. one arduino uno or nano board as slave
+  3. 10k potentiameter
   4. L298 motor driver
   5. 12V motor
 
