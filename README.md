@@ -3,10 +3,10 @@ generating PWM signal via UART
 for controlling DC motor RPM
 
 
-# Requaerment :
+# Requaerment
   1. one arduino uno or nano borad as master
   2. one arduino uno or nano board as slave
-  3. 10k potentiameter
+  3. 10k potentiometer
   4. L298 motor driver
   5. 12V motor
 
