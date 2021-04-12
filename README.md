@@ -11,5 +11,4 @@ for controlling DC motor RPM
   5. 12V motor
 
 # Owner of this project : Sir_Jick
-Date of construction (AD) : April 12 , 2021
-Date of construction (AP) : 1400/01/23
+Date of construction (AD) : April 12 , 2021 | Date of construction (AP) : 1400/01/23
