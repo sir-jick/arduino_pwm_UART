@@ -9,8 +9,6 @@
 
 int pot_value = 0;
 #define pot_pin A0
-// TODO find and replace correct code for master
-
 
 void setup() {
 
