@@ -5,8 +5,8 @@
 * [X] coding for fixing serial communication for slave
 * [ ] adding strat push button to project
 * [ ] adding stop push button to project
-* [X] simulate and test project on proteus
-* [X] clean the project
-* [X] finaly commit on git
-* [X] finaly push on git
-* [X] send the project to custommer
+* [ ] simulate and test project on proteus
+* [ ] clean the project
+* [ ] finaly commit on git
+* [ ] finaly push on git
+* [ ] send the project to custommer
