@@ -15,18 +15,37 @@ int pot_read_serial_max = 1023;
 int pwm_min = 0;
 int pwm_max = 255;
 int pwm = 0;
-
-
+int start_pb = 9;
+int stop_pb = 5;
+boolean mode = 0;
 void setup() {
-
+  pinMode(start_pb, INPUT_PULLUP);
+  pinMode(stop_pb, INPUT_PULLUP);
   Serial.begin(9600); // Begin the Serial at 9600 Baud
-
 }
 
 void loop() {
-  pot_value = analogRead(pot_pin);
+  switch (mode) {
+  case 0:
+   Serial.write("stop");
+  break;
+  case 1:
+   Serial.write("start");
+   pot_value = analogRead(pot_pin);
   pwm = map(pot_value, pot_read_serial_min, pot_read_serial_max, pwm_min, pwm_max);
   // convert 1023 bits to 255 because serial can not handle 1023 
   Serial.write(pwm); // Write the serial data
   delay(10); // every 10 miliseconds repeat the program
+   break;
+  default:
+     if (digitalRead(start_pb) == 0){
+    mode = 1;
+    while (digitalRead(start_pb) == 0 ){}//Do nothing
+    if (digitalRead(stop_pb) == 0){
+      mode = 0;
+      while (digitalRead(stop_pb) == 0 ){}//Do nothing
+        break;
+      }
+    }
+  }
 }
