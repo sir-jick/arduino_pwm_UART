@@ -1,8 +1,11 @@
-* [X] find and replace right code for master
-* [X] find and replace right code for slave
-* [X] start serial communication on master
-* [X] start serial communication on slave
-* [X] simulate and test project on prteus
+* [X] coding ADC protocol for reading potentiometer code for master
+* [X] fixing covertion for 1023 bits to 255 bits
+* [X] coding for fixing serial communication for master
+* [X] fixing l298 motor driver for driving motor on slave
+* [X] coding for fixing serial communication for slave
+* [ ] adding strat push button to project
+* [ ] adding stop push button to project
+* [X] simulate and test project on proteus
 * [X] clean the project
 * [X] finaly commit on git
 * [X] finaly push on git
