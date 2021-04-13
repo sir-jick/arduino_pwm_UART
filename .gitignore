@@ -6,7 +6,6 @@
 *.ko
 *.obj
 *.elf
-*.json
 # Linker output
 *.ilk
 *.map
@@ -41,6 +40,9 @@
 *.su
 *.idb
 *.pdb
+
+# IDE
+.vscode/
 
 # Kernel Module Compile Results
 *.mod*
