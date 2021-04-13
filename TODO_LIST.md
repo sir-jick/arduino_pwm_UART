@@ -1,9 +1,9 @@
 * [X] find and replace right code for master
-* [ ] find and replace right code for slave
+* [X] find and replace right code for slave
 * [X] start serial communication on master
 * [X] start serial communication on slave
-* [ ] simulate and test project on prteus
-* [ ] clean the project
-* [ ] finaly commit on git
-* [ ] finaly push on git
-* [ ] send the project to custommer
+* [X] simulate and test project on prteus
+* [X] clean the project
+* [X] finaly commit on git
+* [X] finaly push on git
+* [X] send the project to custommer
