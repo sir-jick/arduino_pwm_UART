@@ -6,16 +6,11 @@
 // This code is to control the speed of a DC motor by a potentiometer using l298n driver
 // over serial communication
 
-// TODO find and replace correct code for slave
 
 int input_1 = 4;
 int input_2 = 5;
 int Enable_channel_A = 6;
 int speed_of_channel_A = 0;
-int pot_read_serial_min = 0;
-int pot_read_serial_max = 1023;
-int pwm_min = 0;
-int pwm_max = 255;
 
 void setup() {
   pinMode(input_1, OUTPUT);
@@ -25,11 +20,19 @@ void setup() {
 }
 
 void loop() {
-
-  digitalWrite(input_1, LOW); // Switch between this input_1 and input_2 ; HIGH and LOW to change direction
-  digitalWrite(input_2, HIGH);// these two pin contorls input pins of our motor
  
-  speed_of_channel_A = map(*****, pot_read_serial_min, pot_read_serial_max, pwm_min, pwm_max); // convert pot serial value from 1023 bits to 255 bits
-  analogWrite(Enable_channel_A,speed_of_channel_A);// Then send it to our motor
+  while (Serial.available() > 0) {
+
+    digitalWrite(input_1, LOW); // Switch between this input_1 and input_2 ; HIGH and LOW to change direction
+    digitalWrite(input_2, HIGH);// these two pin controls input pins of our motor
+    // read the incoming byte:
+    speed_of_channel_A = Serial.read();
+    // save the serial value
+    analogWrite(Enable_channel_A,speed_of_channel_A);
+    // Then send pwm bits from serial to our motor
+    Serial.println("received pwm bits form serial: ");
+    Serial.println(speed_of_channel_A);
+    
+  }
 
 }
