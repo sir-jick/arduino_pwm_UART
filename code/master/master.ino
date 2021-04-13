@@ -10,6 +10,13 @@
 int pot_value = 0;
 #define pot_pin A0
 
+int pot_read_serial_min = 0;
+int pot_read_serial_max = 1023;
+int pwm_min = 0;
+int pwm_max = 255;
+int pwm = 0;
+
+
 void setup() {
 
   Serial.begin(9600); // Begin the Serial at 9600 Baud
@@ -18,7 +25,8 @@ void setup() {
 
 void loop() {
   pot_value = analogRead(pot_pin);
-  Serial.println(pot_value);// print the value of pot reading to serial print terminal
-  Serial.write(pot_value); // Write the serial data
+  pwm = map(pot_value, pot_read_serial_min, pot_read_serial_max, pwm_min, pwm_max);
+  // convert 1023 bits to 255 because serial can not handle 1023 
+  Serial.write(pwm); // Write the serial data
   delay(10); // every 10 miliseconds repeat the program
 }
