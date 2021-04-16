@@ -1,5 +1,5 @@
 // turning on a 12v DC motor via SERIAL COMMUNICATION using : arduino uno , L298 , pwm wave
-// owner : Abolfazl Safaiy pour
+// owner : Sir_Jick
 // student number : 95211030
 // master : eng, Aeen mehr
 // date of construction : 1400 / 01 / 23  == Monday April 12, 2021
