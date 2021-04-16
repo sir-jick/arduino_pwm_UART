@@ -1,7 +1,5 @@
 // turning on a 12v DC motor via SERIAL COMMUNICATION using : arduino uno , L298 , pwm wave
 // owner : Sir_Jick
-// student number : 95211030
-// master : eng, Aeen mehr
 // date of construction : 1400 / 01 / 23  == Monday April 12, 2021
 // This code is to control the speed of a DC motor by a potentiometer using l298n driver
 // over serial communication
