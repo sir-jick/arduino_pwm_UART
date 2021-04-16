@@ -7,55 +7,43 @@
 // over serial communication
 
 
-int pot_value = 0;
-#define pot_pin A0
 
+int pwm = 0;
+int pot_value = 0;
 int pot_read_serial_min = 0;
 int pot_read_serial_max = 1023;
-
+#define pot_pin A0
 int pwm_min = 0;
 int pwm_max = 255;
-int pwm = 0;
+int start_button_pin = 5;
+bool start_button = 1;
 
-int start_pb = 9;
-int stop_pb = 5;
-boolean start_pb_flag = 0;
-boolean stop_pb_flag = 0;
-
-
-void setup() {
-  pinMode(start_pb, INPUT_PULLUP);
-  pinMode(stop_pb, INPUT_PULLUP);
-  Serial.begin(9600); // Begin the Serial at 9600 Baud
-}
-
-void loop() {
-  if (digitalRead(start_pb) ==  0){
-  start_pb_flag = 1;
-  stop_pb_flag = 0;
-  delay(100);
-  
-  }
-  
-  if (start_pb_flag == 1 & digitalRead(stop_pb) ==  1){
-  pot_value = analogRead(pot_pin);
-  pwm = map(pot_value, pot_read_serial_min, pot_read_serial_max, pwm_min, pwm_max);
-  // convert 1023 bits to 255 because serial can not handle 1023 
-  if (pwm >= 0){
-  Serial.write(int(pwm)); // Write the serial data
-  delay(10); // every 10 miliseconds repeat the program
-   if(digitalRead(start_pb) ==  0){
-    Serial.write("start");
-    } 
-  }
-  }
-  if (digitalRead(stop_pb) ==  0 & digitalRead(start_pb) ==  1){
-  stop_pb_flag = 1;
-  start_pb_flag = 0;
-  
-  while (digitalRead(stop_pb) ==  0){Serial.write("stop");} 
+void setup()
+  {
+    Serial.begin(9600);// Begin the Serial at 9600 Baud
+    pinMode(start_button_pin, INPUT_PULLUP);
+    
   }
 
-}
-
+void loop ()
+  {
+    if (digitalRead(start_button_pin) == 0)
+    {
+      start_button = !start_button;
+      delay(10);
+      while (digitalRead(start_button_pin) == 0){};//free wheel loop
+      }
+    if (start_button == 1 )
+    {
+      pot_value = analogRead(pot_pin);
+      pwm = map(pot_value, pot_read_serial_min, pot_read_serial_max, pwm_min, pwm_max);
+      // convert 1023 bits to 255 because serial can not handle 1023
+      Serial.write(pwm);// Write the pwm serial data
+    }
+    if(start_button == 0)
+    {
+     Serial.write(0);// Write the stop code serial data
+    }
+    
+  }
 
