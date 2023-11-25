@@ -9,4 +9,5 @@
 * [X] clean the project
 * [X] finaly commit on git
 * [X] finaly push on git
-* [X] send the project to custommer
+* [X] send the project to customme
+* [ ] bfhf
